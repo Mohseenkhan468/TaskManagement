@@ -22,14 +22,57 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+This project is a **Task Management System** built using **NestJS** with **MongoDB** as the database. It also includes **API documentation** using **Swagger**.
+
+## Modules
+
+This project is structured into the following modules:
+- **User Module**: Handles user management, including registration, authentication, and role-based access control.
+- **Task Module**: Manages tasks with CRUD operations, filtering, sorting, and pagination.
+- **Auth Module**: Manages authentication and authorization using JWT.
+
+## Features
+
+- **User Authentication & Authorization**
+  - JWT-based authentication
+  - User registration with password hashing
+  - Role-based access control (Admin & Non-Admin)
+  - Admin users can create, update, and delete other users
+  - Users can only manage their own tasks unless they are admins
+
+- **User Management API**
+  - Admins can create, edit, and delete users
+  - Users have attributes: `email`, `password`, `role`
+  - Filtering, sorting, and pagination when listing users
+
+- **Task Management API**
+  - CRUD operations for tasks
+  - Tasks have attributes: `title`, `description`, `status`, `priority`, `due_date`, `assigned_to`
+  - Filtering, sorting, and pagination for tasks
+
+- **Database**
+  - Uses MongoDB (preferably Docker containers for local setup)
+  - Well-defined schema/models
+
+- **API Documentation & Testing**
+  - Swagger for API documentation
+  - Automated tests for APIs
 
 ## Installation
 
 ```bash
 $ npm install
+```
+
+If the above command does not work, try:
+
+```bash
+$ npm install --legacy-peer-deps
 ```
 
 ## Running the app
@@ -45,6 +88,16 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Environment Variables
+
+Create a `.env` file in the root directory and add the following variables:
+
+```
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/taskManagement
+JWT_SECRET=thisissecretkey
+```
+
 ## Test
 
 ```bash
@@ -58,9 +111,24 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## API Documentation
+
+The API documentation is generated using **Swagger**. Once the application is running, you can access it at:
+
+```
+http://localhost:3000/api
+```
+
+If you have changed the port in the `.env` file, replace `3000` with the appropriate port number.
+
+## Version Control
+
+- Uses Git for version control
+- Meaningful commit messages should be used
+
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Nest is an MIT-licensed open-source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
@@ -71,3 +139,11 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+
+
+
+
+
+
